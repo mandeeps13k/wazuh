@@ -1163,7 +1163,7 @@ static void DumpLogstats()
              "totals",
              today);
 
-    flog = fopen(logfile, "a");
+    flog = wfopen(logfile, "a");
     if (!flog) {
         merror(FOPEN_ERROR, logfile, errno, strerror(errno));
         return;
