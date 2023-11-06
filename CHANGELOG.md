@@ -14,22 +14,33 @@ All notable changes to this project will be documented in this file.
 - Improved wazuh-db detection of deleted database files. ([#18476](https://github.com/wazuh/wazuh/pull/18476))
 - Added timeout and retry parameters to the VirusTotal integration. ([#16893](https://github.com/wazuh/wazuh/pull/16893))
 - Extended wazuh-analysisd EPS metrics with events dropped by overload and remaining credits in the previous cycle. ([#18988](https://github.com/wazuh/wazuh/pull/18988))
+- Updated API and framework packages installation commands to use pip instead of direct invocation of setuptools. ([#18466](https://github.com/wazuh/wazuh/pull/18466))
+- Upgrade docker-compose V1 to V2 in API Integration test scripts. ([#17750](https://github.com/wazuh/wazuh/pull/17750)) 
+- Refactored how cluster status dates are treated in the cluster. ([#17015](https://github.com/wazuh/wazuh/pull/17015))
+
+#### Fixed
+- Delete cluster temporary files when the connection between a worker and a master is broken. ([#17886](https://github.com/wazuh/wazuh/pull/17886))
 
 ### Agent
 
 #### Added
 
 - Added snap package manager support to Syscollector. ([#15740](https://github.com/wazuh/wazuh/pull/15740))
+- Added event size validation for the external integrations. ([#17932](https://github.com/wazuh/wazuh/pull/17932))
+- Added new unit tests for the AWS integration. ([#17623](https://github.com/wazuh/wazuh/pull/17623))
 
 #### Changed
 
 - Disabled host's IP query by Logcollector when ip_update_interval=0. ([#18574](https://github.com/wazuh/wazuh/pull/18574))
+- Refactored and modularized the AWS integration code. ([#17623](https://github.com/wazuh/wazuh/pull/17623))
 
 #### Fixed
 
 - Fixed process path retrieval in Syscollector on Windows XP. ([#16839](https://github.com/wazuh/wazuh/pull/16839))
 - Fixed detection of the OS version on Alpine Linux. ([#16056](https://github.com/wazuh/wazuh/pull/16056))
 - Fixed Solaris 10 name not showing in the Dashboard. ([#18642](https://github.com/wazuh/wazuh/pull/18642))
+
+
 
 
 ## [v4.7.1]
