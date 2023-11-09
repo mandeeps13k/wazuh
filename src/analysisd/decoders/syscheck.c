@@ -1325,7 +1325,8 @@ static int fim_process_alert(_sdb * sdb, Eventinfo *lf, cJSON * event) {
         return -1;
     }
 
-    if ((strcmp("registry_key", entry_type) == 0) || (strcmp("registry_value", entry_type) == 0)) {
+    int version_int = (cJSON_GetObjectItem(event, "version"))->valueint;
+    if (((strcmp("registry_key", entry_type) == 0) || (strcmp("registry_value", entry_type) == 0)) && version_int && version_int >= 3) {
         if (lf->fields[FIM_REGISTRY_HASH].value == NULL) {
             mdebug1("No member 'index' in Syscheck JSON payload");
             return -1;
